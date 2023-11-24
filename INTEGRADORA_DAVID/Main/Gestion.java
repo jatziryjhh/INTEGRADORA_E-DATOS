@@ -40,28 +40,26 @@ public class Gestion {
                     System.out.println("LA TAREA HA SIDO AGREGADA CON EXITO");
                     break;
                 case 2:
-                    System.out.println(".-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.");
-                    System.out.println("USTED INGRESO PARA EDITAR TAREAS");
-                    System.out.println(".-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.");
-                    System.out.println("TENEMOS ESTAS TAREAS");
-                    for (int i = 0; i < listaTareas.size(); i++) {
-                        System.out.println((i + 1) + " " + listaTareas.get(i));
-                    }
-                    System.out.println("INGRESA EL NUMERO DE LA TAREA");
-                    int tarea = sc.nextInt();
-                    sc.nextLine();
-                    if (tarea >= 1 && tarea <= listaTareas.size()) {
-                        String tareaAct = listaTareas.get(tarea - 1);
-                        System.out.println("INGRESA EL NOMBRE");
-                        String actNombre = sc.nextLine();
-                        System.out.println("INGRESA LA DESCRIPCION");
-                        String actDesc = sc.nextLine();
-                        mapaTareas.put(actNombre, actDesc);
-                        System.out.println("TAREA ACTUALIZADA CON EXITO");
-                    } else {
-                        System.out.println("ESA NO TA");
-                    }
-                    break;
+                System.out.println("TENEMOS ESTAS TAREAS");
+                for (int i = 0; i < listaTareas.size(); i++) {
+                    System.out.println((i + 1) + " " + listaTareas.get(i));
+                }
+                System.out.print("INGRESA EL NUMERO DE LA TAREA: ");
+                int numeroTareaEditar = sc.nextInt();
+                sc.nextLine(); 
+                if (numeroTareaEditar >= 1 && numeroTareaEditar <= listaTareas.size()) {
+                    String tareaEditar = listaTareas.get(numeroTareaEditar - 1);
+                    System.out.print("INGRESA EL NOMBRE: ");
+                    String nuevoNombre = sc.nextLine();
+                    System.out.print("INGRESA LA DESCRIPCION: ");
+                    String nuevaDescripcion = sc.nextLine();
+                    listaTareas.set(numeroTareaEditar - 1, nuevoNombre);
+                    mapaTareas.put(nuevoNombre, nuevaDescripcion);
+                    System.out.println("TAREA ACTUALIZADA CON EXITO");
+                } else {
+                    System.out.println("NUMERO DE TAREA NO VALIDO");
+                }
+                break;
                 case 3:
                     System.out.println(".-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.");
                     System.out.println("USTED INGRESO PARA ELIMINAR TAREAS");
